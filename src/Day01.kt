@@ -1,6 +1,17 @@
 fun main() {
     fun part1(input: List<String>): Int {
-        return input.size
+        val caloriesPerElf: MutableMap<Int, Int> = mutableMapOf()
+        val index = 0
+        val largestSum = 0
+        input.forEach {
+            if (it.isNullOrEmpty()) {
+                ++index
+            } else {
+                caloriesPerElf[index] += it.toInt()
+            }
+        }
+        
+        return caloriesPerElf.maxBy { it.value }.value
     }
 
     fun part2(input: List<String>): Int {
